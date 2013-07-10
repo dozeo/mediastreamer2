@@ -41,6 +41,7 @@ struct SenderData {
 	int nchannels;
 	int dtmf_duration;
 	int dtmf_ts_step;
+	bool_t allow_stun_packets;
 	uint32_t dtmf_ts_cur;
 	char relay_session_id[64];
 	int relay_session_id_size;
@@ -140,7 +141,8 @@ static int sender_set_session(MSFilter * f, void *arg)
 		d->rate = pt->clock_rate;
 		d->dtmf_duration=(default_dtmf_duration_ms*d->rate)/1000;
 		d->dtmf_ts_step=(20*d->rate)/1000;
-		send_stun_packet(s);
+		if (d->allow_stun_packets)
+			send_stun_packet(s);
 	} else {
 		ms_warning("Sending undefined payload type ?");
 	}
@@ -388,12 +390,15 @@ static void _sender_process(MSFilter * f)
 		}
 	}while ((im = ms_queue_get(f->inputs[0])) != NULL);
 
-	if (d->last_sent_time == -1) {
-		if ((d->last_stun_sent_time == -1) || ((f->ticker->time - d->last_stun_sent_time) >= 500)) {
-			d->last_stun_sent_time = f->ticker->time;
-		}
-		if (d->last_stun_sent_time == f->ticker->time) {
-			send_stun_packet(s);
+	if (d->allow_stun_packets)
+	{
+		if (d->last_sent_time == -1) {
+			if ((d->last_stun_sent_time == -1) || ((f->ticker->time - d->last_stun_sent_time) >= 500)) {
+				d->last_stun_sent_time = f->ticker->time;
+			}
+			if (d->last_stun_sent_time == f->ticker->time) {
+				send_stun_packet(s);
+			}
 		}
 	}
 
