@@ -32,3 +32,12 @@ java/bin/
 java/libs/
 java/gen/
 libs
+
+build/win32native/Debug
+build/win32native/mediastream/Debug/
+*.sdf
+*.suo
+*.opensdf
+*.vcxproj.user
+build/win32native/UpgradeLog*
+*.backup

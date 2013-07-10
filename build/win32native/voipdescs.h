@@ -11,8 +11,8 @@ extern MSFilterDesc ms_dtmf_gen_desc;
 extern MSFilterDesc ms_file_rec_desc;
 extern MSFilterDesc ms_speex_dec_desc;
 extern MSFilterDesc ms_speex_enc_desc;
-extern MSFilterDesc ms_gsm_dec_desc;
-extern MSFilterDesc ms_gsm_enc_desc;
+//extern MSFilterDesc ms_gsm_dec_desc;
+//extern MSFilterDesc ms_gsm_enc_desc;
 extern MSFilterDesc ms_speex_ec_desc;
 extern MSFilterDesc ms_conf_desc;
 extern MSFilterDesc ms_v4w_desc;
@@ -62,8 +62,8 @@ MSFilterDesc * ms_voip_filter_descs[]={
 &ms_file_rec_desc,
 &ms_speex_dec_desc,
 &ms_speex_enc_desc,
-&ms_gsm_dec_desc,
-&ms_gsm_enc_desc,
+//&ms_gsm_dec_desc,
+//&ms_gsm_enc_desc,
 &ms_speex_ec_desc,
 &ms_conf_desc,
 &ms_h263_old_enc_desc,
