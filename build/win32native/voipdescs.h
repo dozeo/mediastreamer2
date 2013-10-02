@@ -93,8 +93,10 @@ MSFilterDesc * ms_voip_filter_descs[]={
 &ms_ext_display_desc,
 &ms_tone_detector_desc,
 &ms_jpeg_writer_desc,
+#ifdef VIDEO_ENABLED
 &ms_vp8_enc_desc,
 &ms_vp8_dec_desc,
+#endif
 &ms_l16_enc_desc,
 &ms_l16_dec_desc,
 &ms_g722_enc_desc,

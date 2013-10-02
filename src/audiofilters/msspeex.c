@@ -588,7 +588,7 @@ static void dec_process(MSFilter *f){
 				if (s->sample_time==0) s->sample_time=f->ticker->time;
 				s->sample_time+=20;
 				if (s->plc_count>0){
-					ms_warning("Did speex packet loss concealment during %i ms",s->plc_count*20);
+					ms_message("Did speex packet loss concealment during %i ms",s->plc_count*20);
 					s->plc_count=0;
 				}
 				

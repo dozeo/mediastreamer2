@@ -1,3 +1,6 @@
+Debug\
+Release\
+
 INSTALL
 install-sh
 aclocal.m4
@@ -34,7 +37,8 @@ java/gen/
 libs
 
 build/win32native/Debug
-build/win32native/mediastream/Debug/
+build/win32native/mediastream/Debug
+build/win32native/mediastreamer2/Debug
 *.sdf
 *.suo
 *.opensdf
