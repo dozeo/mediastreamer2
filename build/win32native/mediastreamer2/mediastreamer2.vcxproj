@@ -45,8 +45,8 @@
     <OutDir>Debug\</OutDir>
     <IntDir>Debug\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>W:\dozeo\ogg\include;W:\dozeo\speex\include;W:\dozeo\msinttypes;W:\dozeo\theora\include;W:\dozeo\ffmpeg-20130514-git-56ba331-win32-dev\include;W:\dozeo\vpx-vp8-debug-src-x86-win32mt-vs9-v1.1.0\include;W:\dozeo\ortp\include;$(IncludePath)</IncludePath>
-    <LibraryPath>W:\dozeo\speex\lib;W:\dozeo\ffmpeg-20130514-git-56ba331-win32-dev\lib;W:\dozeo\theora\win32\VS2010\Win32\Debug;W:\dozeo\ogg\win32\VS2010\Win32\Debug;W:\dozeo\ortp\build\win32native\vs110\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>W:\dozeo\ogg\include;W:\dozeo\speex\include;W:\dozeo\msinttypes;W:\dozeo\theora\include;W:\dozeo\ffmpeg-20130514-git-56ba331-win32-dev\include;W:\dozeo\vpx-vp8-debug-src-x86-win32mt-vs9-v1.1.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>W:\dozeo\speex\lib;W:\dozeo\ffmpeg-20130514-git-56ba331-win32-dev\lib;W:\dozeo\theora\win32\VS2010\Win32\Debug;W:\dozeo\ogg\win32\VS2010\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(Configuration)\</OutDir>
@@ -56,7 +56,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\src\base;..\..\..\src\utils;..\..\..\src\voip;..\..\..\src\audiofilters;..\..\..\src\otherfilters;..\..\..\src/videofilters;..\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\src\base;..\..\..\src\utils;..\..\..\src\voip;..\..\..\src\audiofilters;..\..\..\src\otherfilters;..\..\..\src/videofilters;..\.;..\..\..\..\ortp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__STDC_CONSTANT_MACROS;HAVE_LIBSWSCALE_SWSCALE_H;HAVE_LIBAVCODEC_AVCODEC_H;HAVE_SPEEXDSP;HAVE_DIRECTSHOW_NOPE;VIDEO_ENABLED_NOPE;ORTP_INET6;WIN32;_DEBUG;_WINDOWS;_USRDLL;MEDIASTREAMER2_EXPORTS;WINDOW_NATIVE;_CRT_SECURE_NO_DEPRECATE;_TRUE_TIME;MS2_INTERNAL;MS2_FILTERS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <ExceptionHandling />
@@ -85,6 +85,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <IgnoreSpecificDefaultLibraries>LIBCMTD</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>..\..\..\..\oRTP\build\win32native\vs110\$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
       <Command>
