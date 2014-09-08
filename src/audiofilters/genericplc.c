@@ -21,6 +21,8 @@
 #include <mediastreamer2/mscodecutils.h>
 #include <mediastreamer2/msticker.h>
 
+#include <stdint.h>
+
 /*filter common method*/
 typedef struct {
 	MSConcealerContext* concealer;

@@ -1,0 +1,3 @@
+[submodule "vendor/ortp"]
+	path = vendor/ortp
+	url = git@github.com:dozeo/ortp.git
