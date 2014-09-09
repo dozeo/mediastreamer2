@@ -6,9 +6,13 @@ set(MEDIASTREAMER2_VERSION_MAJOR 2)
 set(MEDIASTREAMER2_VERSION_MINOR 9)
 set(MEDIASTREAMER2_VERSION_MICRO 0)
 
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}")
+
 option(MS2_BUILD_SHARED_LIB "Build shared mediastreamer2 library" ON)
 option(MS2_TEST2 "just testing" ON)
 option(ENABLED_SPEEX "Build with libspeex" ON)
+
+include(speex_library.cmake)
 
 if(NOT TARGET ortp)
 	add_subdirectory(vendor/ortp)
@@ -150,6 +154,23 @@ if(linux)
 		)
 endif()
 
+
+#find_package(Speex REQUIRED)
+#if(SPEEX_FOUND)
+#	message(STATUS "Found:  ${SPEEX_FOUND}")
+#	list(APPEND inc_dirs ${SPEEX_INCLUDE_DIRS})
+#	list(APPEND libs ${SPEEX_LIBRARIES} speexdsp)
+#else()
+#	if(TARGET libspeex)
+#		list(APPEND libs libspeex libspeexdsp)
+#	else()
+#		if (ENABLED_SPEEX)
+#			message(STATUS "Speex is enabled but cannot be found... disabling")
+#			unset(ENABLED_SPEEX)
+#		endif()
+#	endif()
+#endif()
+
 list(APPEND inc_dirs
 	"${CMAKE_CURRENT_SOURCE_DIR}/src"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/utils"
@@ -184,3 +205,4 @@ set_target_properties(mediastreamer2 PROPERTIES
 	VERSION ${MEDIASTREAMER2_VERSION_MAJOR}
 	)
 target_link_libraries(mediastreamer2 ${system_libs} ortp libspeex libspeexdsp)
+
