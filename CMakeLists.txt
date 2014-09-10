@@ -8,7 +8,7 @@ set(MEDIASTREAMER2_VERSION_MICRO 0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}")
 
-option(MS2_BUILD_SHARED_LIB "Build shared mediastreamer2 library" ON)
+option(BUILD_SHARED_LIBS "Build shared mediastreamer2 library" ON)
 option(MS2_TEST2 "just testing" ON)
 option(ENABLED_SPEEX "Build with libspeex" ON)
 
@@ -189,7 +189,7 @@ if(MSVC)
 		"_CRT_SECURE_NO_WARNINGS")
 endif()
 
-if(MS2_BUILD_SHARED_LIB)
+if(BUILD_SHARED_LIBS)
 	set(LIBTYPE SHARED)
 else()
 endif()
